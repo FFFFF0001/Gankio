@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     }
 
     private void requestMain() {
-        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(15, 2), true, new ICallBack<List<GankModel>>() {
+        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(50, 1), true, new ICallBack<List<GankModel>>() {
 
             @Override
             public void onSuccess(List<GankModel> result) {
