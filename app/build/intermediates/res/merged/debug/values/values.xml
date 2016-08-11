@@ -432,7 +432,7 @@
     <dimen name="md_title_frame_margin_bottom_less">6dp</dimen>
     <dimen name="md_title_textsize">20sp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
-    <dimen name="nav_header_img">60dp</dimen>
+    <dimen name="nav_header_img">70dp</dimen>
     <dimen name="nav_header_title_margin">10dp</dimen>
     <dimen name="nav_header_title_size">25dp</dimen>
     <dimen name="nav_header_vertical_spacing">16dp</dimen>

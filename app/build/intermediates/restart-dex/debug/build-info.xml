@@ -4,29 +4,39 @@
     api-level="23"
     density="xxhdpi"
     format="7"
-    timestamp="25433412289722" >
+    timestamp="26736011416489" >
 
     <task
         name="javac"
-        duration="853" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="622" />
+        duration="0" />
     <task
         name="verifier"
-        duration="218" />
+        duration="0" />
 
     <artifact
-        location="D:\AndroidStudioProjects\Gankio\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
+        location="D:\AndroidStudioProjects\Gankio\app\build\intermediates\res\resources-debug.ap_"
+        type="RESOURCES" />
 
     <build timestamp="25433412289722" >
         <artifact
             location="D:\AndroidStudioProjects\Gankio\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
+    </build>
+    <build timestamp="26698655794972" >
+        <artifact
+            location="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="26736011416489" >
+        <artifact
+            location="D:\AndroidStudioProjects\Gankio\app\build\intermediates\res\resources-debug.ap_"
+            type="RESOURCES" />
     </build>
 
 </instant-run>
