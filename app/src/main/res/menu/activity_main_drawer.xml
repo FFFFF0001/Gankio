@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_all"
+            android:icon="@drawable/ic_menu_all"
+            android:title="全部" />
+        <item
+            android:id="@+id/nav_gift"
+            android:icon="@drawable/ic_menu_gift"
+            android:title="福利" />
+        <item
+            android:id="@+id/nav_android"
+            android:icon="@drawable/ic_menu_android"
+            android:title="Android" />
+        <item
+            android:id="@+id/nav_ios"
+            android:icon="@drawable/ic_menu_ios"
+            android:title="ios" />
+        <item
+            android:id="@+id/nav_rest"
+            android:icon="@drawable/ic_menu_rest"
+            android:title="休息视频" />
+        <item
+            android:id="@+id/nav_html"
+            android:icon="@drawable/ic_menu_html"
+            android:title="前端" />
+        <item
+            android:id="@+id/nav_expand"
+            android:icon="@drawable/ic_menu_expand"
+            android:title="拓展资源" />
+        <item
+            android:id="@+id/nav_app"
+            android:icon="@drawable/ic_menu_app"
+            android:title="App" />
+        <item
+            android:id="@+id/nav_recommend"
+            android:icon="@drawable/ic_menu_recommend"
+            android:title="瞎推荐" />
+    </group>
+
+</menu>

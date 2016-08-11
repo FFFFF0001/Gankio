@@ -1,0 +1,11 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <item name="ic_menu_all" type="drawable">@drawable/ic_all</item>
+    <item name="ic_menu_gift" type="drawable">@drawable/ic_gift</item>
+    <item name="ic_menu_android" type="drawable">@drawable/ic_android</item>
+    <item name="ic_menu_ios" type="drawable">@drawable/ic_ios</item>
+    <item name="ic_menu_rest" type="drawable">@drawable/ic_rest</item>
+    <item name="ic_menu_html" type="drawable">@drawable/ic_html</item>
+    <item name="ic_menu_expand" type="drawable">@drawable/ic_expand</item>
+    <item name="ic_menu_app" type="drawable">@drawable/ic_app</item>
+    <item name="ic_menu_recommend" type="drawable">@drawable/ic_remmend</item>
+</resources>
