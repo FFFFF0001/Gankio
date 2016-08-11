@@ -72,7 +72,7 @@ public class MainRecycleAdapter extends RecyclerView.Adapter {
     }
 
     private void bindFuliItem(GankModel gankModel, FuliItemHolder holder) {
-        Glide.with(mFragment).load(gankModel.getUrl()).placeholder(R.drawable.ic_default).crossFade(300).into(holder.iIvFuli);
+        Glide.with(mFragment).load(gankModel.getUrl()).crossFade(300).into(holder.iIvFuli);
     }
 
     @Override
