@@ -3,6 +3,7 @@ package com.mifind.gankio.ui.activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener;
@@ -13,7 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.mifind.gankio.R;
 import com.mifind.gankio.conf.Conf;
@@ -36,10 +38,6 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     DrawerLayout mDrawerLayout;
     @Bind(R.id.nav_view)
     NavigationView mNavigationView;
-    @Bind(R.id.fl_main_layout)
-    FrameLayout mFlMainLayout;
-
-
     ActionBarDrawerToggle mActionBarDrawerToggle;
 
     @Override
@@ -54,6 +52,10 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
 
     @Override
     public int bindLayout() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //去掉Activity上面的状态栏
+        getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN ,
+                WindowManager.LayoutParams. FLAG_FULLSCREEN);
         return R.layout.activity_main;
     }
 
@@ -83,7 +85,6 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
 
             @Override
             public void onSuccess(List<GankModel> result) {
-                Logger.i("onSuccess :" + result.size());
                 setDefaultFragment(result);
             }
 
@@ -98,7 +99,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     private void setDefaultFragment(List<GankModel> result) {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        MainFragment mainFragment = new MainFragment(mContext,result);
+        MainFragment mainFragment = new MainFragment(mContext, result);
         transaction.replace(R.id.fl_main_layout, mainFragment);
         transaction.commit();
     }
@@ -123,6 +124,20 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
         int id = item.getItemId();
         if (id == R.id.action_settings) {
 
+            return true;
+        }
+        if (id == R.id.action_theme) {
+
+            return true;
+        }
+        if (id == R.id.action_about_app) {
+
+            return true;
+        }
+        if (id == R.id.action_about_me) {
+            Intent intent = new Intent(this,WebViewActivity.class);
+            intent.putExtra("url",Conf.RequestBlog());
+            startActivity(intent);
             return true;
         }
 
@@ -153,7 +168,6 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
     @Override
     public void onClick(View v) {

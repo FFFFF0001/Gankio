@@ -8,19 +8,32 @@
         android:minSdkVersion="18"
         android:targetSdkVersion="23" />
 
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
+        android:name="com.mifind.gankio.GankApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.mifind.gankio.MainActivity" >
+        <activity
+            android:name="com.mifind.gankio.ui.activity.MainActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.mifind.gankio.ui.activity.WebViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

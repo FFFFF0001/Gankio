@@ -32,4 +32,8 @@ public class Conf {
     }
 
 
+    public static String RequestBlog() {
+        return "https://mifind.github.io/";
+    }
+
 }

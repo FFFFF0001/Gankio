@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:2:1-20:12
+ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:2:1-31:12
 	package
 		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:3:11-38
 		INJECTED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml
@@ -13,50 +13,152 @@ ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:2:1-
 	android:versionCode
 		INJECTED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml
 		INJECTED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml
+uses-permission-sdk-23
+ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:5:5-74
+	android:name
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:5:29-71
+uses-permission#android.permission.INTERNET
+ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:8:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:9:22-78
 application
-ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:5:5-18:19
-MERGED from [com.android.support:appcompat-v7:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
-MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
-MERGED from [com.android.support:support-v4:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v4:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
-MERGED from [com.android.support:support-v4:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:10:5-29:19
+MERGED from [com.android.support:appcompat-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:design:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:cardview-v7:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.afollestad.material-dialogs:commons:0.9.0.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.afollestad.material-dialogs\commons\0.9.0.0\AndroidManifest.xml:12:5-20
+MERGED from [com.afollestad.material-dialogs:core:0.9.0.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.afollestad.material-dialogs\core\0.9.0.0\AndroidManifest.xml:13:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:25:5-20
 	android:label
-		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:14:9-41
 	android:supportsRtl
-		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:9:9-35
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:15:9-35
 	android:allowBackup
-		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:12:9-35
 	android:icon
-		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:13:9-43
 	android:theme
-		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:10:9-40
-activity#com.mifind.gankio.MainActivity
-ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:11:9-17:20
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:16:9-40
 	android:name
-		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:11:19-47
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:11:9-32
+activity#com.mifind.gankio.ui.activity.MainActivity
+ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:17:9-25:20
+	android:screenOrientation
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:19:13-49
+	android:name
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:18:13-53
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:12:13-16:29
+ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:20:13-24:29
 action#android.intent.action.MAIN
-ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:13:17-68
+ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:21:17-68
 	android:name
-		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:13:25-66
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:15:17-76
+ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:23:17-76
 	android:name
-		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:15:27-74
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:23:27-74
+activity#com.mifind.gankio.ui.activity.WebViewActivity
+ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:26:9-28:51
+	android:screenOrientation
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:28:13-49
+	android:name
+		ADDED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml:27:13-56
 uses-sdk
 INJECTED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:appcompat-v7:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:5:5-44
-MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
-MERGED from [com.android.support:support-v4:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
-MERGED from [com.android.support:support-v4:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:design:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.1.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:appcompat-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:cardview-v7:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.orhanobut:logger:1.15] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.orhanobut\logger\1.15\AndroidManifest.xml:6:5-43
+MERGED from [com.afollestad.material-dialogs:commons:0.9.0.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.afollestad.material-dialogs\commons\0.9.0.0\AndroidManifest.xml:8:5-10:41
+MERGED from [com.afollestad.material-dialogs:core:0.9.0.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.afollestad.material-dialogs\core\0.9.0.0\AndroidManifest.xml:8:5-11:75
+MERGED from [com.android.support:recyclerview-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.1.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.1.7] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\me.zhanghai.android.materialprogressbar\library\1.1.7\AndroidManifest.xml:12:5-14:41
+MERGED from [com.android.support:appcompat-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:appcompat-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:appcompat-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-vector-drawable:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\AndroidManifest.xml:21:5-23:54
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:23.4.0] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:24.1.1] D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
 		INJECTED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml
 		INJECTED from D:\AndroidStudioProjects\Gankio\app\src\main\AndroidManifest.xml

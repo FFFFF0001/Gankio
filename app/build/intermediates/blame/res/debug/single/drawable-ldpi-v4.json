@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_menu_camera.png",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_camera.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_menu_share.png",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_share.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_menu_send.png",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_send.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\md_nav_back.png",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\exploded-aar\\com.afollestad.material-dialogs\\core\\0.9.0.0\\res\\drawable-ldpi-v4\\md_nav_back.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_menu_slideshow.png",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_slideshow.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_menu_manage.png",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_manage.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_menu_gallery.png",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_gallery.png"
+    }
+]

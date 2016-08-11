@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.mifind.gankio.R;
 import com.mifind.gankio.model.GankModel;
 import com.mifind.gankio.ui.activity.WebViewActivity;
-import com.mifind.gankio.utils.GlideUtils;
 
 import java.util.List;
 
@@ -72,7 +72,7 @@ public class MainRecycleAdapter extends RecyclerView.Adapter {
     }
 
     private void bindFuliItem(GankModel gankModel, FuliItemHolder holder) {
-        GlideUtils.getInstance().LoadFragmentBitmap(mFragment, gankModel.getUrl(), holder.iIvFuli, R.mipmap.ic_launcher, R.mipmap.ic_launcher, GlideUtils.LOAD_BITMAP);
+        Glide.with(mFragment).load(gankModel.getUrl()).placeholder(R.drawable.ic_default).crossFade(300).into(holder.iIvFuli);
     }
 
     @Override

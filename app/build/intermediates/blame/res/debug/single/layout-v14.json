@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\layout-v14\\md_stub_progress_indeterminate_horizontal.xml",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\exploded-aar\\com.afollestad.material-dialogs\\core\\0.9.0.0\\res\\layout-v14\\md_stub_progress_indeterminate_horizontal.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\layout-v14\\md_stub_progress_indeterminate.xml",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\exploded-aar\\com.afollestad.material-dialogs\\core\\0.9.0.0\\res\\layout-v14\\md_stub_progress_indeterminate.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\layout-v14\\md_stub_progress.xml",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\exploded-aar\\com.afollestad.material-dialogs\\core\\0.9.0.0\\res\\layout-v14\\md_stub_progress.xml"
+    }
+]

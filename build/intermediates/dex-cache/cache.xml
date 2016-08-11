@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.1.1_ca70bb4ea246d1280f32d6d361a2c055d02a9aaf\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xuanjiawei\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.1.1\3af19f153122737b372622fa6c81dd11a1c6b999\support-annotations-24.1.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.1.1_51ad3f4148848c3a1e06ac1ad342fc0ef8825315\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xuanjiawei\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.6.0_4e340569aa0c9f8545a58ec6514e7231ac118c75\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.orhanobut\logger\1.15\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2a156b99fc7cc034308f942906b09d32754a4470">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.orhanobut-logger-1.15_fbeb9cf201ba1ea9dddf42860b406820ae61c6e5\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\libs\android-toolbox-5.0.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="313a94d1f569f512f2496cf5cd4afa7417be4c6a">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\2\android-toolbox-5.0.0_b879971fbb558f05fdc89b4a8360e1aaf3ed7ced\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="7f32829c84b2f7e8df48489e45aa8567ab12f921">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_e6eb8d5669994f57d33bd3d5a6efaf3d69562a6d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xuanjiawei\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.0.1\b34c1f2d993044656e87f88970b6818e99e886ba\okhttp-3.0.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="b34c1f2d993044656e87f88970b6818e99e886ba">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.0.1_79ff526ed1f2f8c1d201c8a1f0cb60cda15738f0\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.afollestad.material-dialogs\core\0.9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="13c0b3f72c67721f9cf20d275bfc142b03cbbc7c">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.afollestad.material-dialogs-core-0.9.0.0_efbfc9843f3dd7f19b0b9462a1946f5c0f9bfd44\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_4f024b1dbe9a08e4be38795273f20a6433116de1\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\libs\internal_impl-24.1.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.1.1_4d1ae25386909ade2b81360155b1566dbcf2ec35\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.1.1_4ec58b8c63e0a29a825cfe416cde6ae617f7a233\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8a3f5dd6553fe6d9c15fb4034e12743042c3aa5f">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_1ebdad95155e903be62142b8e74b3e331c70b9eb\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.afollestad.material-dialogs\commons\0.9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="3208a94de1f49ce50713d7ab0803143e7a2cb5b1">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.afollestad.material-dialogs-commons-0.9.0.0_d42aaec6f8f6c2e08d5372f09edb3220a877f434\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="787871951412550519b0222aba3c9df4cea49875">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.1.1_7b2412669014b150bd0b5a52771838c0a67d3b21\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.4.0_8ea7c10836dd31b96b651d482470fd7f3309b53a\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xuanjiawei\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.6.1\86b122e640af09b0723e1fa44083c354ba6d9089\glide-3.6.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.6.1_943c925b3ecd0e39f91db532addb719f796d2339\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.1.1_091f883925d63017d22b4c539040603b72e4a0a3\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\me.zhanghai.android.materialprogressbar\library\1.1.7\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1478a113f04bf0b679037b4f6bd88bd1837b96a3">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\me.zhanghai.android.materialprogressbar-library-1.1.7_811078396e2e4c71cc54717eb59bf0c416371441\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Xuanjiawei\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\7.0.1\d5d13ea991eab0252e3710e5df3d6a9d4b21d461\butterknife-7.0.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-7.0.1_5115abd5c491109fce7dacb6578b68b7f4d73445\classes.dex" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\Gankio\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.1.1_95e6ae23da7c50445585443fcda174bd49ee53c7\classes.dex" />
+    </item>
+    <item
+        jar="C:\Android\Android Studio\gradle\m2repository\com\google\code\gson\gson\2.2.4\gson-2.2.4.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="D:\AndroidStudioProjects\Gankio\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.2.4_4fbc6a92fdb6b7ce5f2f434cb26426f0dd34d3c1\classes.dex" />
+    </item>
+
+</items>

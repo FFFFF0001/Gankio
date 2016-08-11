@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\layout-ldrtl-v17\\md_listitem_singlechoice.xml",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\exploded-aar\\com.afollestad.material-dialogs\\core\\0.9.0.0\\res\\layout-ldrtl-v17\\md_listitem_singlechoice.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\res\\merged\\debug\\layout-ldrtl-v17\\md_listitem_multichoice.xml",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\app\\build\\intermediates\\exploded-aar\\com.afollestad.material-dialogs\\core\\0.9.0.0\\res\\layout-ldrtl-v17\\md_listitem_multichoice.xml"
+    }
+]
