@@ -17,12 +17,14 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.mifind.gankio.GankApp;
 import com.mifind.gankio.R;
 import com.mifind.gankio.conf.Conf;
 import com.mifind.gankio.http.ICallBack;
 import com.mifind.gankio.http.RequestManager;
 import com.mifind.gankio.model.GankModel;
 import com.mifind.gankio.ui.fragment.MainFragment;
+import com.mifind.gankio.utils.PreUtils;
 import com.orhanobut.logger.Logger;
 
 import java.util.List;
@@ -31,6 +33,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity implements OnNavigationItemSelectedListener {
+
+    private int MAIN_INDEX;
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
@@ -42,7 +46,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
 
     @Override
     public void initParms(Bundle parms) {
-
+        MAIN_INDEX = PreUtils.getInt(GankApp.getContext(), "MAIN_INDEX", 1);
     }
 
     @Override
@@ -54,8 +58,8 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     public int bindLayout() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //去掉Activity上面的状态栏
-        getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN ,
-                WindowManager.LayoutParams. FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         return R.layout.activity_main;
     }
 
@@ -81,7 +85,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     }
 
     private void requestMain() {
-        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(50, 1), true, new ICallBack<List<GankModel>>() {
+        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(50, MAIN_INDEX), true, new ICallBack<List<GankModel>>() {
 
             @Override
             public void onSuccess(List<GankModel> result) {
@@ -91,6 +95,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
             @Override
             public void onFailure(String message) {
                 Logger.i("onFailure :" + message);
+                requestMain();
             }
         });
     }
@@ -135,8 +140,8 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
             return true;
         }
         if (id == R.id.action_about_me) {
-            Intent intent = new Intent(this,WebViewActivity.class);
-            intent.putExtra("url",Conf.RequestBlog());
+            Intent intent = new Intent(this, WebViewActivity.class);
+            intent.putExtra("url", Conf.RequestBlog());
             startActivity(intent);
             return true;
         }
@@ -173,4 +178,5 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     public void onClick(View v) {
 
     }
+
 }

@@ -28,7 +28,7 @@ import okhttp3.Response;
 public class RequestManager {
     private static final String ERROR = "error";
     private static final String RESULTS = "results";
-    public static final int DEFAULT_MILLISECONDS = 60000; //默认的超时时间
+    public static final int DEFAULT_MILLISECONDS = 6000; //默认的超时时间
     private static RequestManager mInstance; //单例
     private static Application mContext; //全局上下文
     private OkHttpClient.Builder okHttpClientBuilder;     //ok请求的客户端
@@ -179,6 +179,15 @@ public class RequestManager {
             if (call.request().tag().equals(tag)) {
                 call.cancel();
             }
+        }
+    }
+
+    public void cancelAllRequest() {
+        for (Call call : okHttpClient.dispatcher().queuedCalls()) {
+                call.cancel();
+        }
+        for (Call call : okHttpClient.dispatcher().runningCalls()) {
+                call.cancel();
         }
     }
 }

@@ -116,4 +116,9 @@ public class MainRecycleAdapter extends RecyclerView.Adapter {
             iTvWho = (TextView) itemView.findViewById(R.id.tv_item_who);
         }
     }
+
+    public void updateData(List<GankModel> list) {
+        mDataList = list;
+        notifyDataSetChanged();
+    }
 }

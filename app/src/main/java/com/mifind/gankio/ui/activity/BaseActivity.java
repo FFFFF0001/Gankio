@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.mifind.gankio.http.RequestManager;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -208,6 +209,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        RequestManager.getInstance().cancelAllRequest();
         Logger.d("BaseActivity-->onDestroy()");
     }
 
@@ -246,5 +248,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public void setScreenRoate(boolean isAllowScreenRoate) {
         this.isAllowScreenRoate = isAllowScreenRoate;
     }
+
 
 }
