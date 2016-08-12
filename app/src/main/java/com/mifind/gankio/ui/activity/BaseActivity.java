@@ -16,7 +16,8 @@ import com.mifind.gankio.http.RequestManager;
 import com.orhanobut.logger.Logger;
 
 /**
- * Created by Xuanjiawei on 2016/8/9.
+ * Created by Xuanjiawei1 on 2016/8/9.
+ *
  */
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
     public Context mContext;
@@ -49,14 +50,14 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         Bundle bundle = getIntent().getExtras();
         initParms(bundle);
         View mView = bindView();
+        if (mAllowFullScreen) {
+            requestWindowFeature(Window.FEATURE_NO_TITLE);
+        }
         if (null == mView) {
             mContextView = LayoutInflater.from(this)
                     .inflate(bindLayout(), null);
         } else
             mContextView = mView;
-        if (mAllowFullScreen) {
-            requestWindowFeature(Window.FEATURE_NO_TITLE);
-        }
         if (isSetStatusBar) {
             steepStatusBar();
         }
