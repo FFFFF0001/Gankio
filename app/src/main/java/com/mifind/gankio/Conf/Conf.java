@@ -35,5 +35,9 @@ public class Conf {
     public static String RequestBlog() {
         return "https://mifind.github.io/";
     }
+    
+    public static String RequestFuli(int num ,int index){
+        return "http://gank.io/api/data/福利/" + num + "/" + index;
+    }
 
 }
