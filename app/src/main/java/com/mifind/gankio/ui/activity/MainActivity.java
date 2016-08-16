@@ -155,7 +155,8 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
         if (id == R.id.nav_all) {
 
         } else if (id == R.id.nav_gift) {
-
+            Intent intent = new Intent(this,FuLiActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_android) {
 
         } else if (id == R.id.nav_ios) {
