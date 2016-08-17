@@ -31,6 +31,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import me.xiaopan.android.widget.ToastUtils;
 
 public class MainActivity extends BaseActivity implements OnNavigationItemSelectedListener {
 
@@ -95,7 +96,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
             @Override
             public void onFailure(String message) {
                 Logger.i("onFailure :" + message);
-                requestMain();
+                ToastUtils.toastS(mContext,message);
             }
         });
     }

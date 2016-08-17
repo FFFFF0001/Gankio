@@ -1,7 +1,6 @@
 package com.mifind.gankio.ui.activity;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -24,6 +23,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import me.xiaopan.android.widget.ToastUtils;
 
 /**
  * Created by 李赫 on 2016/8/15.
@@ -88,7 +88,7 @@ public class FuLiActivity extends BaseActivity {
             @Override
             public void onFailure(String message) {
                 Logger.i("onFailure :" + message);
-                requestMain();
+                ToastUtils.toastS(mContext,message);
             }
         });
     }
