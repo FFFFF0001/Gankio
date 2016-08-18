@@ -17,6 +17,7 @@ import com.orhanobut.logger.Logger;
 
 /**
  * Created by Xuanjiawei1 on 2016/8/9.
+ * reversie by lihe
  *
  */
 public abstract class BaseActivity extends AppCompatActivity {
