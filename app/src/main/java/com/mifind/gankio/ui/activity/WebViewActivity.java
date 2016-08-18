@@ -199,11 +199,6 @@ public class WebViewActivity extends BaseActivity {
     }
 
 
-    @Override
-    public void onClick(View v) {
-
-    }
-
     /**
      * 给javascript调用的代码
      */

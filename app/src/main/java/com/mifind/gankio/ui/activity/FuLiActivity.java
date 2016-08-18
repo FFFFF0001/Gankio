@@ -2,13 +2,11 @@ package com.mifind.gankio.ui.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.mifind.gankio.R;
 import com.mifind.gankio.conf.Conf;
@@ -29,73 +27,72 @@ import me.xiaopan.android.widget.ToastUtils;
  * Created by 李赫 on 2016/8/15.
  * recyclerview 瀑布流图片展示
  */
-public class FuLiActivity extends BaseActivity {
+public class FuLiActivity extends CommonActivity {
     private FuliRecyclerAdapter fuliRecyclerAdapter;
     List<GankModel> mdatalist;
-
-    @Bind(R.id.mToolbar)
-    Toolbar mToolbar;
     @Bind(R.id.rv_fuli)
     RecyclerView fulirecyclerview;
+    @Bind(R.id.swipe_refresh)
+    SwipeRefreshLayout mSwipeRefresh;
+
+    @Override
+    protected void initCommonView(View commonView) {
+        ButterKnife.bind(FuLiActivity.this);
+        mSwipeRefresh.setColorScheme(new int[]{R.color.colorPrimary, R.color.colorRedPrimary, R.color.colorOrangePrimary, R.color.colorGreenPrimary});
+    }
+
+    @Override
+    protected String bindCommonTitle() {
+        return "福利";
+    }
+
+    @Override
+    protected int bindCommonLayout() {
+        return R.layout.activity_fuli;
+    }
+
     @Override
     public void initParms(Bundle parms) {
 
     }
 
     @Override
-    public View bindView() {
-        return null;
-    }
-
-    @Override
-    public int bindLayout() {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        return R.layout.activity_fuli;
-    }
-
-    @Override
-    public void initView(View view) {
-        ButterKnife.bind(this);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle("福利");
-    }
-
-    @Override
     public void setListener() {
-
-    }
-
-    @Override
-    public void doBusiness(Context mContext) {
-        mdatalist = new ArrayList<>();
-        fuliRecyclerAdapter = new FuliRecyclerAdapter(mContext,mdatalist);
-        fulirecyclerview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        requestMain();
-    }
-
-    private void requestMain() {
-        RequestManager.getInstance().debug("request").get("all", Conf.RequestFuli(50, 1), true, new ICallBack<List<GankModel>>() {
-
+        mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onSuccess(List<GankModel> result) {
-                mdatalist.addAll(result);
-                fulirecyclerview.setAdapter(fuliRecyclerAdapter);
-            }
-
-            @Override
-            public void onFailure(String message) {
-                Logger.i("onFailure :" + message);
-                ToastUtils.toastS(mContext,message);
+            public void onRefresh() {
+                ToastUtils.toastS(mContext, "sshjshshshs");
             }
         });
     }
 
     @Override
-    public void onClick(View view) {
+    public void doBusiness(Context mContext) {
+        mSwipeRefresh.setRefreshing(true);
+        mdatalist = new ArrayList<>();
+        fuliRecyclerAdapter = new FuliRecyclerAdapter(mContext, mdatalist);
+        fulirecyclerview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        requestFuli();
+    }
 
+
+    private void requestFuli() {
+        RequestManager.getInstance().debug("request").get("all", Conf.RequestFuli(20, 1), true, new ICallBack<List<GankModel>>() {
+
+            @Override
+            public void onSuccess(List<GankModel> result) {
+                mdatalist.addAll(result);
+                fulirecyclerview.setAdapter(fuliRecyclerAdapter);
+                mSwipeRefresh.setRefreshing(false);
+            }
+
+            @Override
+            public void onFailure(String message) {
+                Logger.i("onFailure :" + message);
+                ToastUtils.toastS(mContext, message);
+                mSwipeRefresh.setRefreshing(false);
+            }
+        });
     }
 
     @Override

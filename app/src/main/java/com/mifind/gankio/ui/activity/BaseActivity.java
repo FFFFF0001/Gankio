@@ -19,7 +19,7 @@ import com.orhanobut.logger.Logger;
  * Created by Xuanjiawei1 on 2016/8/9.
  *
  */
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BaseActivity extends AppCompatActivity {
     public Context mContext;
     /**
      * 是否沉浸状态栏

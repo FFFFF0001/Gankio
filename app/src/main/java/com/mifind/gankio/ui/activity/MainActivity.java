@@ -176,9 +176,4 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
         return true;
     }
 
-    @Override
-    public void onClick(View v) {
-
-    }
-
 }
