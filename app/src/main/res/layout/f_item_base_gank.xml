@@ -22,7 +22,6 @@
            android:id="@+id/tv_gank_title"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:text="我的么不的撒大大就撒了大山里的撒旦"
            android:textColor="@color/black"
            android:textSize="14sp"/>
         <TextView
@@ -31,7 +30,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:layout_below="@id/tv_gank_title"
-            android:text="232132131"
             android:textColor="@color/black"
             android:textSize="10sp"
             />
@@ -43,7 +41,6 @@
             android:layout_toRightOf="@id/tv_gank_date"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="3dp"
-            android:text="李赫"
             android:textColor="@color/black"
             android:textSize="10sp"/>
     </RelativeLayout>
