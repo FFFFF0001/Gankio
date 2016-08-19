@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_base_gank"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:clickable="true"
+    app:contentPadding="3dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp">
+       <TextView
+           android:id="@+id/tv_gank_title"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="我的么不的撒大大就撒了大山里的撒旦"
+           android:textColor="@color/black"
+           android:textSize="14sp"/>
+        <TextView
+            android:id="@+id/tv_gank_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_below="@id/tv_gank_title"
+            android:text="232132131"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            />
+        <TextView
+            android:id="@+id/tv_gank_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_gank_title"
+            android:layout_toRightOf="@id/tv_gank_date"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="3dp"
+            android:text="李赫"
+            android:textColor="@color/black"
+            android:textSize="10sp"/>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
