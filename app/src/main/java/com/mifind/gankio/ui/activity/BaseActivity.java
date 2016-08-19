@@ -1,5 +1,6 @@
 package com.mifind.gankio.ui.activity;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -176,6 +177,16 @@ public abstract class BaseActivity extends AppCompatActivity {
             intent.putExtras(bundle);
         }
         startActivityForResult(intent, requestCode);
+    }
+    /**
+     根据tag替换fragment
+     */
+    public void replaceFragment(int containerViewId, Fragment fragment, String tag) {
+        if(null == getFragmentManager().findFragmentByTag(tag)) {
+            getFragmentManager().beginTransaction()
+                    .replace(containerViewId, fragment, tag)
+                    .commit();
+        }
     }
 
     @Override

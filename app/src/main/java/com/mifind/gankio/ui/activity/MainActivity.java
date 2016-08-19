@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -23,7 +24,10 @@ import com.mifind.gankio.conf.Conf;
 import com.mifind.gankio.http.ICallBack;
 import com.mifind.gankio.http.RequestManager;
 import com.mifind.gankio.model.GankModel;
+import com.mifind.gankio.ui.fragment.AndriodFragment;
+import com.mifind.gankio.ui.fragment.IOSFragment;
 import com.mifind.gankio.ui.fragment.MainFragment;
+import com.mifind.gankio.ui.fragment.WebFragment;
 import com.mifind.gankio.utils.PreUtils;
 import com.orhanobut.logger.Logger;
 
@@ -34,8 +38,11 @@ import butterknife.ButterKnife;
 import me.xiaopan.android.widget.ToastUtils;
 
 public class MainActivity extends BaseActivity implements OnNavigationItemSelectedListener {
-
+    /**
+     * APP主页  侧滑抽屉可切换fragment
+     */
     private int MAIN_INDEX;
+
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
@@ -86,7 +93,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     }
 
     private void requestMain() {
-        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(50, MAIN_INDEX), true, new ICallBack<List<GankModel>>() {
+        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(10, MAIN_INDEX), true, new ICallBack<List<GankModel>>() {
 
             @Override
             public void onSuccess(List<GankModel> result) {
@@ -96,7 +103,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
             @Override
             public void onFailure(String message) {
                 Logger.i("onFailure :" + message);
-                ToastUtils.toastS(mContext,message);
+                ToastUtils.toastS(mContext, message);
             }
         });
     }
@@ -109,6 +116,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
         transaction.replace(R.id.fl_main_layout, mainFragment);
         transaction.commit();
     }
+
 
     @Override
     public void onBackPressed() {
@@ -159,13 +167,22 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
             Intent intent = new Intent(this,FuLiActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_android) {
-
+            if(null == getFragmentManager().findFragmentByTag(AndriodFragment.TAG)) {
+                replaceFragment(R.id.fl_main_layout, AndriodFragment.newInstance(), AndriodFragment.TAG);
+                setTitle("Andriod");
+            }
         } else if (id == R.id.nav_ios) {
-
+             if (null == getFragmentManager().findFragmentByTag(IOSFragment.TAG)){
+                 replaceFragment(R.id.fl_main_layout,IOSFragment.newInstance(),IOSFragment.TAG);
+                 setTitle("IOS");
+             }
         } else if (id == R.id.nav_rest) {
 
         } else if (id == R.id.nav_html) {
-
+            if (null == getFragmentManager().findFragmentByTag(WebFragment.TAG)){
+                replaceFragment(R.id.fl_main_layout,WebFragment.newInstance(),WebFragment.TAG);
+                setTitle("前端");
+            }
         } else if (id == R.id.nav_expand) {
 
         } else if (id == R.id.nav_recommend) {
