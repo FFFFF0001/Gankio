@@ -39,5 +39,23 @@ public class Conf {
     public static String RequestFuli(int num ,int index){
         return "http://gank.io/api/data/福利/" + num + "/" + index;
     }
+    
+    public static String RequestAndroid(int num ,int index){
+        return "http://gank.io/api/data/Android/" + num + "/" + index;
+    }
+
+    public static String RequestiOS(int num ,int index){
+        return "http://gank.io/api/data/iOS/" + num + "/" + index;
+    }
+    public static String RequestVideo(int num ,int index){
+        return "http://gank.io/api/data/休息视频/" + num + "/" + index;
+    }
+    public static String RequestFront(int num ,int index){
+        return "http://gank.io/api/data/前端/" + num + "/" + index;
+    }
+
+    public static String RequestTuozhan(int num ,int index){
+        return "http://gank.io/api/data/拓展资源/" + num + "/" + index;
+    }
 
 }
