@@ -15,9 +15,7 @@ import com.mifind.gankio.R;
  */
 public abstract class CommonActivity extends BaseActivity {
 
-//    @Bind(R.id.mToolbar)
     Toolbar mToolbar;
-//    @Bind(R.id.fl_common_layout)
     FrameLayout mFlCommonContainerLayout;
 
     @Override

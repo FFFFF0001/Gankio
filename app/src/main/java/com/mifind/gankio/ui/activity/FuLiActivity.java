@@ -3,6 +3,7 @@ package com.mifind.gankio.ui.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.MenuItem;
@@ -34,6 +35,7 @@ public class FuLiActivity extends CommonActivity {
     RecyclerView fulirecyclerview;
     @Bind(R.id.swipe_refresh)
     SwipeRefreshLayout mSwipeRefresh;
+    private static int FULI_INDEX = 1;
 
     @Override
     protected void initCommonView(View commonView) {
@@ -61,27 +63,43 @@ public class FuLiActivity extends CommonActivity {
         mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                ToastUtils.toastS(mContext, "sshjshshshs");
+                requestFuli(++FULI_INDEX);
             }
         });
     }
 
     @Override
     public void doBusiness(Context mContext) {
-        mSwipeRefresh.setRefreshing(true);
         mdatalist = new ArrayList<>();
+        fulirecyclerview.setHasFixedSize(true);
+        final StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
+        fulirecyclerview.setLayoutManager(layoutManager);
+        fulirecyclerview.setPadding(0, 0, 0, 0);
+        fulirecyclerview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+//                layoutManager.invalidateSpanAssignments();
+            }
+        });
+
+        // 设置item动画
+        fulirecyclerview.setItemAnimator(new DefaultItemAnimator());
         fuliRecyclerAdapter = new FuliRecyclerAdapter(mContext, mdatalist);
-        fulirecyclerview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        requestFuli();
+        requestFuli(++FULI_INDEX);
     }
 
 
-    private void requestFuli() {
-        RequestManager.getInstance().debug("request").get("all", Conf.RequestFuli(20, 1), true, new ICallBack<List<GankModel>>() {
+    private void requestFuli(int i) {
+        RequestManager.getInstance().debug("request").get("fuli", Conf.RequestFuli(30, i), true, new ICallBack<List<GankModel>>() {
 
             @Override
             public void onSuccess(List<GankModel> result) {
-                mdatalist.addAll(result);
+                mdatalist = null;
+                mdatalist = result;
+                int positionStart = fuliRecyclerAdapter.getItemCount();
+                fuliRecyclerAdapter.notifyItemRangeInserted(positionStart, mdatalist.size());
                 fulirecyclerview.setAdapter(fuliRecyclerAdapter);
                 mSwipeRefresh.setRefreshing(false);
             }

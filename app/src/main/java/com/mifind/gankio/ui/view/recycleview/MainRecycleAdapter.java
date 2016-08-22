@@ -2,6 +2,7 @@ package com.mifind.gankio.ui.view.recycleview;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -65,7 +66,9 @@ public class MainRecycleAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mFragment.getActivity(), WebViewActivity.class);
-                intent.putExtra("url", gankModel.getUrl());
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("model", gankModel);
+                intent.putExtras(bundle);
                 mFragment.getActivity().startActivity(intent);
             }
         });

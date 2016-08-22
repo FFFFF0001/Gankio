@@ -34,6 +34,7 @@ public class RequestManager {
     private OkHttpClient.Builder okHttpClientBuilder;     //ok请求的客户端
     private OkHttpClient okHttpClient;
     private static Handler mDelivery = new Handler(Looper.getMainLooper());
+
     public static RequestManager getInstance() {
         if (mInstance == null) {
             synchronized (RequestManager.class) {
@@ -61,7 +62,9 @@ public class RequestManager {
         okHttpClient = okHttpClientBuilder.build();
     }
 
-    /** 调试模式 */
+    /**
+     * 调试模式
+     */
     public RequestManager debug(String tag) {
         okHttpClientBuilder.addInterceptor(new LoggerInterceptor(tag, true));
         return this;
@@ -185,10 +188,10 @@ public class RequestManager {
 
     public void cancelAllRequest() {
         for (Call call : okHttpClient.dispatcher().queuedCalls()) {
-                call.cancel();
+            call.cancel();
         }
         for (Call call : okHttpClient.dispatcher().runningCalls()) {
-                call.cancel();
+            call.cancel();
         }
     }
 }

@@ -19,7 +19,6 @@ import com.orhanobut.logger.Logger;
 /**
  * Created by Xuanjiawei1 on 2016/8/9.
  * reversie by lihe
- *
  */
 public abstract class BaseActivity extends AppCompatActivity {
     public Context mContext;
@@ -178,11 +177,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         startActivityForResult(intent, requestCode);
     }
+
     /**
-     根据tag替换fragment
+     * 根据tag替换fragment
      */
     public void replaceFragment(int containerViewId, Fragment fragment, String tag) {
-        if(null == getFragmentManager().findFragmentByTag(tag)) {
+        if (null == getFragmentManager().findFragmentByTag(tag)) {
             getFragmentManager().beginTransaction()
                     .replace(containerViewId, fragment, tag)
                     .commit();

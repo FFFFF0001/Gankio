@@ -4,10 +4,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,14 +24,17 @@ import android.webkit.WebSettings;
 import android.webkit.WebSettings.RenderPriority;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import com.mifind.gankio.R;
+import com.mifind.gankio.model.GankModel;
 import com.orhanobut.logger.Logger;
 
 import java.lang.ref.WeakReference;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import me.xiaopan.android.widget.ToastUtils;
 
 /**
  * Created by Xuanjiawei on 2016/8/11.
@@ -36,16 +43,28 @@ public class WebViewActivity extends BaseActivity {
     private final static int FINISH_ACTIVITY = 0;
     private final static int REQUEST_UPLOAD_FILE_CODE = 2;
     private ValueCallback<Uri> mUploadFile;
-    private final String TAG = "WebViewActivity ";
-    private String url;
+    private final String TAG = this.getClass().getSimpleName();
     private Handler handler = new MyHandler(this);
-
+    private GankModel mGankModel;
+    private String title, url;
     @Bind(R.id.webView)
     WebView mWebView;
+    @Bind(R.id.mToolbar)
+    Toolbar mToolbar;
+    @Bind(R.id.toolbar_title)
+    TextView mToolbarTitle;
+    @Bind(R.id.web_fab)
+    FloatingActionButton mFloatingActionButton;
 
     @Override
     public void initParms(Bundle parms) {
-        url = getIntent().getStringExtra("url");
+        mGankModel = (GankModel) parms.getSerializable("model");
+        if (mGankModel != null) {
+            title = mGankModel.getDesc();
+            url = mGankModel.getUrl();
+        } else {
+            url = getIntent().getStringExtra("url");
+        }
         getWindow().setFeatureInt(Window.FEATURE_PROGRESS,
                 Window.PROGRESS_VISIBILITY_ON);
     }
@@ -59,20 +78,26 @@ public class WebViewActivity extends BaseActivity {
     public int bindLayout() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //去掉Activity上面的状态栏
-        getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN ,
-                WindowManager.LayoutParams. FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         return R.layout.activity_webview;
     }
 
     @Override
     public void initView(View view) {
         ButterKnife.bind(this);
-
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
     public void setListener() {
+        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
     }
 
     @Override
@@ -100,14 +125,20 @@ public class WebViewActivity extends BaseActivity {
     private void configWebview() {
         // 允许javascript代码执行
         WebSettings settings = mWebView.getSettings();
+        //告诉WebView先不要自动加载图片，等页面finish后再发起图片加载。
+        if (Build.VERSION.SDK_INT >= 19) {
+            settings.setLoadsImagesAutomatically(true);
+        } else {
+            settings.setLoadsImagesAutomatically(false);
+        }
         settings.setJavaScriptEnabled(true); //支持js
-        settings.setDomStorageEnabled(true);
         settings.setUseWideViewPort(true);//将图片调整到适合webview的大小
         settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
-        settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK); //关闭webview中缓存
+        // settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK); //关闭webview中缓存
+        settings.setCacheMode(WebSettings.LOAD_DEFAULT); //设置 缓存模式
+        settings.setDomStorageEnabled(true);// 开启 DOM storage API 功能
         settings.setAppCacheMaxSize(8 * 1024 * 1024);
         settings.setRenderPriority(RenderPriority.HIGH);
-        settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         settings.setAppCacheEnabled(true);
         settings.setJavaScriptCanOpenWindowsAutomatically(true);//支持通过JS打开新窗口
         settings.setAllowFileAccess(true); //设置可以访问文件
@@ -122,16 +153,29 @@ public class WebViewActivity extends BaseActivity {
                 mWebView.loadUrl(url);
                 return true;
             }
+
+            @Override
+            public void onReceivedError (WebView view, int errorCode, String description, String failingUrl) {
+                super.onReceivedError(view, errorCode, description, failingUrl);
+                //TODO 这里对错误页面进行统一处理
+                ToastUtils.toastS(mContext,description);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                if (!mWebView.getSettings().getLoadsImagesAutomatically()) {
+                    mWebView.getSettings().setLoadsImagesAutomatically(true);
+                }
+            }
         });
         //WebChromeClient是辅助WebView处理Javascript的对话框，网站图标，网站title，加载进度等 :
         mWebView.setWebChromeClient(new WebChromeClient() {
             // 使webview可以更新进度条
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
-                WebViewActivity.this.setTitle("加载中……");
-                WebViewActivity.this.setProgress(newProgress * 100);
-//                if (newProgress == 100)
-//                    setActionbarTitle();
+                mToolbar.setTitle("加载中… " + newProgress + "%");
+                if (newProgress == 100)
+                    setActionbarTitle();
             }
 
 
@@ -181,6 +225,16 @@ public class WebViewActivity extends BaseActivity {
         mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
     }
+
+    private void setActionbarTitle() {
+        if (!TextUtils.isEmpty(title)) {
+            mToolbarTitle.setText(title);
+            mToolbar.setTitle("");
+        } else {
+            mToolbar.setTitle("干货");
+        }
+    }
+
 
     private Intent createCameraIntent() {
         Intent imageIntent = new Intent(Intent.ACTION_GET_CONTENT);// 选择图片文件
