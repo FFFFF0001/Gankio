@@ -31,6 +31,9 @@ public class Conf {
         return "http://gank.io/api/data/all/" + num + "/" + index;
     }
 
+    public static String RequestAboutApp() {
+        return "http://fir.im/7qjd";
+    }
 
     public static String RequestBlog() {
         return "https://mifind.github.io/";

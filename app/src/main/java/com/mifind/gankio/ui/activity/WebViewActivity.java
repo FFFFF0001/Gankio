@@ -98,7 +98,15 @@ public class WebViewActivity extends BaseActivity {
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ShareUtils.showShare(mGankModel);
+                if (mGankModel != null) {
+                    ShareUtils.showShare(mGankModel.getUrl(), mGankModel.getDesc());
+                }else {
+                    if(url.startsWith("https")){
+                        ShareUtils.showShare(url, "Android开发记录博客。");
+                    }else{
+                        ShareUtils.showShare(url, "干货，一个即将变的牛逼的软件。");
+                    }
+                }
             }
         });
     }
