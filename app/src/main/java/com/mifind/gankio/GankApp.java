@@ -26,7 +26,6 @@ public class GankApp extends Application {
         RequestManager.init(this);
         //以下都不是必须的，根据需要自行选择
         RequestManager.getInstance().debug("gankio");
-
     }
 
     public static Context getContext() {

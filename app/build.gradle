@@ -2,6 +2,18 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
+        debug {
+            keyAlias 'demo.keystore'
+            keyPassword 'gankio'
+            storeFile file('D:/AndroidStudioProjects/Gankio/demo.keystore')
+            storePassword 'gankio'
+        }
+        release {
+            keyAlias 'demo.keystore'
+            keyPassword 'gankio'
+            storeFile file('D:/AndroidStudioProjects/Gankio/demo.keystore')
+            storePassword 'gankio'
+        }
     }
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -16,6 +28,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.release
         }
     }
 }
