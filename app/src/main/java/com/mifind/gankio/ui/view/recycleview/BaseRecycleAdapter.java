@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by Xuanjiawei on 2016/8/10.
  */
-public class MainRecycleAdapter extends RecyclerView.Adapter {
+public class BaseRecycleAdapter extends RecyclerView.Adapter {
 
     private static final int FULI_ITEM = 0x0;
     private static final int OTHER_ITEM = 0x1;
@@ -29,7 +29,7 @@ public class MainRecycleAdapter extends RecyclerView.Adapter {
     private LayoutInflater mLayoutInflater;
     private Fragment mFragment;
 
-    public MainRecycleAdapter(Fragment fragment, List<GankModel> mDataList) {
+    public BaseRecycleAdapter(Fragment fragment, List<GankModel> mDataList) {
         this.mFragment = fragment;
         this.mDataList = mDataList;
         mLayoutInflater = LayoutInflater.from(mFragment.getActivity());

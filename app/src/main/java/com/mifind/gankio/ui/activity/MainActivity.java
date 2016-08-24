@@ -17,17 +17,20 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.mifind.gankio.GankApp;
 import com.mifind.gankio.R;
 import com.mifind.gankio.conf.Conf;
 import com.mifind.gankio.http.ICallBack;
 import com.mifind.gankio.http.RequestManager;
 import com.mifind.gankio.model.GankModel;
 import com.mifind.gankio.ui.fragment.AndriodFragment;
+import com.mifind.gankio.ui.fragment.AppFragment;
+import com.mifind.gankio.ui.fragment.ExpandFragment;
+import com.mifind.gankio.ui.fragment.FuLiFragment;
 import com.mifind.gankio.ui.fragment.IOSFragment;
 import com.mifind.gankio.ui.fragment.MainFragment;
+import com.mifind.gankio.ui.fragment.RecommodFragment;
+import com.mifind.gankio.ui.fragment.RestFragment;
 import com.mifind.gankio.ui.fragment.WebFragment;
-import com.mifind.gankio.utils.PreUtils;
 import com.orhanobut.logger.Logger;
 
 import java.util.List;
@@ -40,8 +43,6 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     /**
      * APP主页  侧滑抽屉可切换fragment
      */
-    private int MAIN_INDEX;
-
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
     @Bind(R.id.drawer_layout)
@@ -52,7 +53,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
 
     @Override
     public void initParms(Bundle parms) {
-        MAIN_INDEX = PreUtils.getInt(GankApp.getContext(), "MAIN_INDEX", 1);
+
     }
 
     @Override
@@ -91,7 +92,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     }
 
     private void requestMain() {
-        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(50, MAIN_INDEX), true, new ICallBack<List<GankModel>>() {
+        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(50, 1), true, new ICallBack<List<GankModel>>() {
 
             @Override
             public void onSuccess(List<GankModel> result) {
@@ -162,31 +163,50 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_all) {
-
+            if (null == getFragmentManager().findFragmentByTag(MainFragment.TAG)) {
+                replaceFragment(R.id.fl_main_layout, MainFragment.newInstance(), MainFragment.TAG);
+                setTitle("干货");
+            }
         } else if (id == R.id.nav_gift) {
-            Intent intent = new Intent(this,FuLiActivity.class);
-            startActivity(intent);
+            if (null == getFragmentManager().findFragmentByTag(FuLiFragment.TAG)) {
+                replaceFragment(R.id.fl_main_layout, FuLiFragment.newInstance(), FuLiFragment.TAG);
+                setTitle("福利");
+            }
         } else if (id == R.id.nav_android) {
-            if(null == getFragmentManager().findFragmentByTag(AndriodFragment.TAG)) {
+            if (null == getFragmentManager().findFragmentByTag(AndriodFragment.TAG)) {
                 replaceFragment(R.id.fl_main_layout, AndriodFragment.newInstance(), AndriodFragment.TAG);
                 setTitle("Andriod");
             }
         } else if (id == R.id.nav_ios) {
-             if (null == getFragmentManager().findFragmentByTag(IOSFragment.TAG)){
-                 replaceFragment(R.id.fl_main_layout,IOSFragment.newInstance(),IOSFragment.TAG);
-                 setTitle("IOS");
-             }
+            if (null == getFragmentManager().findFragmentByTag(IOSFragment.TAG)) {
+                replaceFragment(R.id.fl_main_layout, IOSFragment.newInstance(), IOSFragment.TAG);
+                setTitle("IOS");
+            }
         } else if (id == R.id.nav_rest) {
-
+            if (null == getFragmentManager().findFragmentByTag(RestFragment.TAG)) {
+                replaceFragment(R.id.fl_main_layout, RestFragment.newInstance(), RestFragment.TAG);
+                setTitle("休息视频");
+            }
         } else if (id == R.id.nav_html) {
-            if (null == getFragmentManager().findFragmentByTag(WebFragment.TAG)){
-                replaceFragment(R.id.fl_main_layout,WebFragment.newInstance(),WebFragment.TAG);
+            if (null == getFragmentManager().findFragmentByTag(WebFragment.TAG)) {
+                replaceFragment(R.id.fl_main_layout, WebFragment.newInstance(), WebFragment.TAG);
                 setTitle("前端");
             }
         } else if (id == R.id.nav_expand) {
-
+            if (null == getFragmentManager().findFragmentByTag(ExpandFragment.TAG)) {
+                replaceFragment(R.id.fl_main_layout, ExpandFragment.newInstance(), ExpandFragment.TAG);
+                setTitle("拓展资源");
+            }
+        } else if (id == R.id.nav_app) {
+            if (null == getFragmentManager().findFragmentByTag(AppFragment.TAG)) {
+                replaceFragment(R.id.fl_main_layout, AppFragment.newInstance(), AppFragment.TAG);
+                setTitle("App");
+            }
         } else if (id == R.id.nav_recommend) {
-
+            if (null == getFragmentManager().findFragmentByTag(RecommodFragment.TAG)) {
+                replaceFragment(R.id.fl_main_layout, RecommodFragment.newInstance(), RecommodFragment.TAG);
+                setTitle("瞎推荐");
+            }
         }
         item.setChecked(true);
         mDrawerLayout.closeDrawer(GravityCompat.START);

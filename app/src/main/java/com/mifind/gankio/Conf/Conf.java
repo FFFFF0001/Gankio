@@ -57,8 +57,20 @@ public class Conf {
         return "http://gank.io/api/data/前端/" + num + "/" + index;
     }
 
-    public static String RequestTuozhan(int num ,int index){
+    public static String RequestExpand(int num ,int index){
         return "http://gank.io/api/data/拓展资源/" + num + "/" + index;
+    }
+
+    public static String RequestRest(int num ,int index){
+        return "http://gank.io/api/data/休息视频/" + num + "/" + index;
+    }
+
+    public static String RequestApp(int num ,int index){
+        return "http://gank.io/api/data/App/" + num + "/" + index;
+    }
+
+    public static String RequestRecommond(int num ,int index){
+        return "http://gank.io/api/data/瞎推荐/" + num + "/" + index;
     }
 
 }

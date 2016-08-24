@@ -9,9 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.mifind.gankio.R;
 import com.mifind.gankio.model.GankModel;
-import com.mifind.gankio.ui.view.recycleview.BaseGankAdapter;
+import com.mifind.gankio.ui.view.recycleview.BaseRecycleAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public abstract class BaseGankFragment extends Fragment implements SwipeRefreshL
     RecyclerView mrecyclerView;
 
     protected List<GankModel> mdatalist = new ArrayList<>();
-    protected BaseGankAdapter baseGankAdapter;
+    protected BaseRecycleAdapter baseGankAdapter;
     protected boolean isLoadingMore = false;
     protected Context mContext;
 
@@ -41,14 +42,13 @@ public abstract class BaseGankFragment extends Fragment implements SwipeRefreshL
         mContext = getActivity();
         View view  = inflater.inflate(R.layout.fragement_base_gank,container,false);
         ButterKnife.bind(this,view);
-
         mswipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimaryDark, R.color.colorAccent);
         mswipeRefreshLayout.setOnRefreshListener(this);
         mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         mrecyclerView.setLayoutManager(mLayoutManager);
         mrecyclerView.setHasFixedSize(true);
         mrecyclerView.addOnScrollListener(mScrollListener);
-        baseGankAdapter = new BaseGankAdapter(this,mdatalist);
+        baseGankAdapter = new BaseRecycleAdapter(this,mdatalist);
         mrecyclerView.setAdapter(baseGankAdapter);
 
         return view;

@@ -1,6 +1,5 @@
 package com.mifind.gankio.ui.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,26 +14,16 @@ import com.orhanobut.logger.Logger;
 import java.util.List;
 
 /**
- * Created by xuanjiawei on 2016/8/24.
- * IOS列表页
+ * Created by JW.Xuan on 2016/8/24 16:17.
+ * 邮箱：mifind@sina.com
  */
-public class MainFragment extends BaseGankFragment {
-    public static final String TAG = MainFragment.class.getSimpleName();
+public class FuLiFragment extends BaseGankFragment {
+    public static final String TAG = FuLiFragment.class.getSimpleName();
 
     private int pageSize = 50;
     private int page = 1;
 
-    public MainFragment() {
-    }
-
-    public MainFragment(Context context, List<GankModel> mDataList) {
-        this.mContext = context;
-        this.mdatalist = mDataList;
-    }
-
-    public static MainFragment newInstance() {
-        return new MainFragment();
-    }
+    public static FuLiFragment newInstance(){ return new FuLiFragment();}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,7 +33,7 @@ public class MainFragment extends BaseGankFragment {
 
     @Override
     protected void RequestData() {
-        RequestManager.getInstance().debug("request").get("all", Conf.RequestiOS(pageSize, page), true, new ICallBack<List<GankModel>>() {
+        RequestManager.getInstance().debug("request").get("all", Conf.RequestFuli(pageSize, page), true, new ICallBack<List<GankModel>>() {
 
             @Override
             public void onSuccess(List<GankModel> result) {
@@ -70,7 +59,7 @@ public class MainFragment extends BaseGankFragment {
 
     @Override
     protected void loadMore() {
-        page++;
+        page ++;
         RequestData();
     }
 
@@ -80,3 +69,4 @@ public class MainFragment extends BaseGankFragment {
         RequestData();
     }
 }
+
