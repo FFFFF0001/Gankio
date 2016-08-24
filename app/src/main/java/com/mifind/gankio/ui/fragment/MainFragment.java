@@ -59,7 +59,7 @@ public class MainFragment extends BaseFragment {
 
     @Override
     public void onRefreshing() {
-        loadData(++MAIN_INDEX);
+        loadData(MAIN_INDEX);
     }
 
     @Override
@@ -77,6 +77,7 @@ public class MainFragment extends BaseFragment {
                 mDataList = result;
                 mMainRecycleAdapter.updateData(mDataList);
                 mBaseView.setRefreshing(false);
+                MAIN_INDEX++;
             }
 
             @Override

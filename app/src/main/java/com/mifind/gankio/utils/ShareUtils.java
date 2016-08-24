@@ -20,8 +20,8 @@ public class ShareUtils {
             @Override
             public void onShare(Platform platform, Platform.ShareParams paramsToShare) {
                 if (SinaWeibo.NAME.equals(platform.getName())) {
-
-
+                    paramsToShare.setText(title+" "+url);
+                    paramsToShare.setImageUrl("http://www.mob.com/static/app/icon/1471917030.png");
                 } else if ("Wechat".equals(platform.getName()) || "WechatMoments".equals(platform.getName()) || "WechatFavorite".equals(platform.getName())) {
                     paramsToShare.setTitle(title);
                     paramsToShare.setUrl(url);

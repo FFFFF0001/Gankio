@@ -42,7 +42,6 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
      */
     private int MAIN_INDEX;
 
-
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
     @Bind(R.id.drawer_layout)
@@ -92,7 +91,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     }
 
     private void requestMain() {
-        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(10, MAIN_INDEX), true, new ICallBack<List<GankModel>>() {
+        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(50, MAIN_INDEX), true, new ICallBack<List<GankModel>>() {
 
             @Override
             public void onSuccess(List<GankModel> result) {
