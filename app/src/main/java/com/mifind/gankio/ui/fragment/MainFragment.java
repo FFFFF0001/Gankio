@@ -20,10 +20,6 @@ import java.util.List;
  */
 public class MainFragment extends BaseGankFragment {
     public static final String TAG = MainFragment.class.getSimpleName();
-
-    private int pageSize = 50;
-    private int page = 1;
-
     public MainFragment() {
     }
 
@@ -44,7 +40,7 @@ public class MainFragment extends BaseGankFragment {
 
     @Override
     protected void RequestData() {
-        RequestManager.getInstance().debug("request").get("all", Conf.RequestiOS(pageSize, page), true, new ICallBack<List<GankModel>>() {
+        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(pageSize, page), true, new ICallBack<List<GankModel>>() {
 
             @Override
             public void onSuccess(List<GankModel> result) {
@@ -77,6 +73,7 @@ public class MainFragment extends BaseGankFragment {
     @Override
     public void onRefresh() {
         page = 1;
+        mdatalist.clear();
         RequestData();
     }
 }

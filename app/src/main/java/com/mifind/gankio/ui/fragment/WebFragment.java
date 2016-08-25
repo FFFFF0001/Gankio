@@ -1,7 +1,6 @@
 package com.mifind.gankio.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +18,6 @@ import java.util.List;
  */
 public class WebFragment extends BaseGankFragment {
     public static final String TAG = WebFragment.class.getSimpleName();
-
-    private int pageSize = 50;
-    private int page = 1;
-
     public static WebFragment newInstance() {
         return new WebFragment();
     }
@@ -61,13 +56,14 @@ public class WebFragment extends BaseGankFragment {
 
     @Override
     protected void loadMore() {
-        page ++;
+        page++;
         RequestData();
     }
 
     @Override
     public void onRefresh() {
         page = 1;
+        mdatalist.clear();
         RequestData();
     }
 }

@@ -34,6 +34,8 @@ public abstract class BaseGankFragment extends Fragment implements SwipeRefreshL
     protected BaseRecycleAdapter baseGankAdapter;
     protected boolean isLoadingMore = false;
     protected Context mContext;
+    protected int pageSize = 10;
+    protected int page = 1;
 
     protected LinearLayoutManager mLayoutManager;
 
@@ -50,7 +52,6 @@ public abstract class BaseGankFragment extends Fragment implements SwipeRefreshL
         mrecyclerView.addOnScrollListener(mScrollListener);
         baseGankAdapter = new BaseRecycleAdapter(this,mdatalist);
         mrecyclerView.setAdapter(baseGankAdapter);
-
         return view;
     }
 

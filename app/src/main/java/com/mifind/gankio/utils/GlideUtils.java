@@ -1,6 +1,7 @@
 package com.mifind.gankio.utils;
 
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -18,6 +19,10 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
+import com.orhanobut.logger.Logger;
+
+import me.xiaopan.android.net.NetworkUtils;
+import me.xiaopan.android.widget.ToastUtils;
 
 /**
  * Created by Xuanjiawei on 2016/8/5.
@@ -125,7 +130,7 @@ public class GlideUtils {
      * 使用activity 会受到Activity生命周期控制
      * 使用FragmentActivity 会受到FragmentActivity生命周期控制
      *
-     * @param activity
+     * @param context
      * @param path
      * @param imageView
      * @param placeid     占位
@@ -139,6 +144,32 @@ public class GlideUtils {
             Glide.with(context).load(path).asGif().crossFade().into(imageView);
         }
     }
+
+
+    /**
+     *
+     * @param fragment
+     * @param path
+     * @param imageView
+     * @param placeid
+     * @param errorid
+     */
+    public void LoadFragmentImage(Fragment fragment, String path, ImageView imageView, int placeid, int errorid){
+        try {
+            if(NetworkUtils.isWifiOpen(fragment.getActivity())){
+                Logger.i("wifi is on");
+                Glide.with(fragment).load(path).placeholder(placeid).error(errorid).crossFade().into(imageView);
+            }else{
+                Logger.i("wifi is off");
+                ToastUtils.toastS(fragment.getActivity(), "建议您开启wifi浏览高清图片。");
+                Glide.with(fragment).load(path).bitmapTransform(new BlurTransformation(fragment.getActivity())).into(imageView);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     /**
      * Glide请求图片，会受到Fragment 生命周期控制。
@@ -290,7 +321,7 @@ public class GlideUtils {
     /**
      * Glide 加载模糊图片 会受到Fragment生命周期控制
      *
-     * @param context
+     * @param fragment
      * @param path
      * @param imageView
      */
@@ -302,7 +333,7 @@ public class GlideUtils {
     /**
      * Glide 加载模糊图片 会受到support.v4.app.Fragment生命周期控制
      *
-     * @param context
+     * @param fragment
      * @param path
      * @param imageView
      */
@@ -442,7 +473,7 @@ public class GlideUtils {
 
         @Override
         protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
-            Bitmap blurredBitmap = toTransform.copy(Bitmap.Config.ARGB_8888, true);
+            Bitmap blurredBitmap = toTransform.copy(Bitmap.Config.RGB_565, true);
 
             // Allocate memory for Renderscript to work with
             Allocation input = Allocation.createFromBitmap(

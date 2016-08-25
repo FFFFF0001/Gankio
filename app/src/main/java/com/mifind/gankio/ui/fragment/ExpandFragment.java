@@ -19,10 +19,6 @@ import java.util.List;
  */
 public class ExpandFragment extends BaseGankFragment {
     public static final String TAG = ExpandFragment.class.getSimpleName();
-
-    private int pageSize = 50;
-    private int page = 1;
-
     public static ExpandFragment newInstance() {
         return new ExpandFragment();
     }
@@ -68,6 +64,7 @@ public class ExpandFragment extends BaseGankFragment {
     @Override
     public void onRefresh() {
         page = 1;
+        mdatalist.clear();
         RequestData();
     }
 }

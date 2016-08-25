@@ -19,10 +19,6 @@ import java.util.List;
  */
 public class RecommodFragment extends BaseGankFragment {
     public static final String TAG = RecommodFragment.class.getSimpleName();
-
-    private int pageSize = 50;
-    private int page = 1;
-
     public static RecommodFragment newInstance() {
         return new RecommodFragment();
     }
@@ -68,6 +64,7 @@ public class RecommodFragment extends BaseGankFragment {
     @Override
     public void onRefresh() {
         page = 1;
+        mdatalist.clear();
         RequestData();
     }
 }

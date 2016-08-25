@@ -39,6 +39,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import me.xiaopan.android.widget.ToastUtils;
 
+/**
+ * Created by JW.Xuan on 2016/8/24 16:17.
+ * 邮箱：mifind@sina.com
+ */
 public class MainActivity extends BaseActivity implements OnNavigationItemSelectedListener {
     /**
      * APP主页  侧滑抽屉可切换fragment
@@ -92,7 +96,7 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     }
 
     private void requestMain() {
-        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(50, 1), true, new ICallBack<List<GankModel>>() {
+        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(10, 1), true, new ICallBack<List<GankModel>>() {
 
             @Override
             public void onSuccess(List<GankModel> result) {

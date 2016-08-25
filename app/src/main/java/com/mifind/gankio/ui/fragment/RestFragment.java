@@ -19,10 +19,6 @@ import java.util.List;
  */
 public class RestFragment extends BaseGankFragment {
     public static final String TAG = RestFragment.class.getSimpleName();
-
-    private int pageSize = 50;
-    private int page = 1;
-
     public static RestFragment newInstance() {
         return new RestFragment();
     }
@@ -68,6 +64,7 @@ public class RestFragment extends BaseGankFragment {
     @Override
     public void onRefresh() {
         page = 1;
+        mdatalist.clear();
         RequestData();
     }
 }

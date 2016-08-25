@@ -18,10 +18,6 @@ import java.util.List;
  */
 public class AndriodFragment extends BaseGankFragment {
     public static final String TAG = AndriodFragment.class.getSimpleName();
-
-    private int pageSize = 50;
-    private int page = 1;
-
     public static AndriodFragment newInstance() {
         return new AndriodFragment();
     }
@@ -67,6 +63,7 @@ public class AndriodFragment extends BaseGankFragment {
     @Override
     public void onRefresh() {
         page = 1;
+        mdatalist.clear();
         RequestData();
     }
 }

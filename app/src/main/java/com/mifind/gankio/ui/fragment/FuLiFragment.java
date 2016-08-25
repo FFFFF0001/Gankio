@@ -19,10 +19,6 @@ import java.util.List;
  */
 public class FuLiFragment extends BaseGankFragment {
     public static final String TAG = FuLiFragment.class.getSimpleName();
-
-    private int pageSize = 50;
-    private int page = 1;
-
     public static FuLiFragment newInstance(){ return new FuLiFragment();}
 
     @Override
@@ -66,6 +62,7 @@ public class FuLiFragment extends BaseGankFragment {
     @Override
     public void onRefresh() {
         page = 1;
+        mdatalist.clear();
         RequestData();
     }
 }

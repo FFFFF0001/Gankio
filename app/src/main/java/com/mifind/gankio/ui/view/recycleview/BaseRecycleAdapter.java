@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.mifind.gankio.R;
 import com.mifind.gankio.model.GankModel;
 import com.mifind.gankio.ui.activity.WebViewActivity;
+import com.mifind.gankio.utils.GlideUtils;
 
 import java.util.List;
 
@@ -75,7 +75,7 @@ public class BaseRecycleAdapter extends RecyclerView.Adapter {
     }
 
     private void bindFuliItem(GankModel gankModel, FuliItemHolder holder) {
-        Glide.with(mFragment).load(gankModel.getUrl()).crossFade(300).into(holder.iIvFuli);
+        GlideUtils.getInstance().LoadFragmentImage(mFragment, gankModel.getUrl(), holder.iIvFuli, 0, 0);
     }
 
     @Override
