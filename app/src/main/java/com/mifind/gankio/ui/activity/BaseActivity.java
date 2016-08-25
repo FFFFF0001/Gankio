@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.mifind.gankio.http.RequestManager;
 import com.orhanobut.logger.Logger;
+import com.umeng.message.PushAgent;
 
 /**
  * Created by Xuanjiawei1 on 2016/8/9.
@@ -48,6 +49,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mContext = this;
         Logger.d("BaseActivity-->onCreate()");
+        PushAgent.getInstance(mContext).onAppStart();
         Bundle bundle = getIntent().getExtras();
         initParms(bundle);
         View mView = bindView();

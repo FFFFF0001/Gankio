@@ -32,6 +32,8 @@ import com.mifind.gankio.ui.fragment.RecommodFragment;
 import com.mifind.gankio.ui.fragment.RestFragment;
 import com.mifind.gankio.ui.fragment.WebFragment;
 import com.orhanobut.logger.Logger;
+import com.umeng.message.PushAgent;
+import com.umeng.message.UmengRegistrar;
 
 import java.util.List;
 
@@ -54,10 +56,18 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     @Bind(R.id.nav_view)
     NavigationView mNavigationView;
     ActionBarDrawerToggle mActionBarDrawerToggle;
+    private PushAgent mPushAgent;
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParms(Bundle parms) {}
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPushAgent = PushAgent.getInstance(mContext);
+        mPushAgent.enable();
+        String device_token = UmengRegistrar.getRegistrationId(mContext);
+        Logger.e("token=" + device_token + ", enable=" + mPushAgent.isEnabled() + ", register=" + mPushAgent.isRegistered());
     }
 
     @Override
@@ -217,4 +227,9 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
         return true;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPushAgent.disable();
+    }
 }

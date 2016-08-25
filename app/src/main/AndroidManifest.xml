@@ -61,6 +61,21 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="57be8cb1e0f55a68b4002478" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="b0a49c8f92ce4c131a72fed8a04b3d33" >
+        </meta-data>
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="ANDROID_GITHUB_MIFIND" >
+        </meta-data>
     </application>
 
 </manifest>
