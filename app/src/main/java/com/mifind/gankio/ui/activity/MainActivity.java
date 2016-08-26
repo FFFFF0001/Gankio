@@ -19,9 +19,6 @@ import android.view.WindowManager;
 
 import com.mifind.gankio.R;
 import com.mifind.gankio.conf.Conf;
-import com.mifind.gankio.http.ICallBack;
-import com.mifind.gankio.http.RequestManager;
-import com.mifind.gankio.model.GankModel;
 import com.mifind.gankio.ui.fragment.AndriodFragment;
 import com.mifind.gankio.ui.fragment.AppFragment;
 import com.mifind.gankio.ui.fragment.ExpandFragment;
@@ -35,11 +32,10 @@ import com.orhanobut.logger.Logger;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UmengRegistrar;
 
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import me.xiaopan.android.widget.ToastUtils;
+
 
 /**
  * Created by JW.Xuan on 2016/8/24 16:17.
@@ -101,31 +97,13 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
 
     @Override
     public void doBusiness(final Context mContext) {
-        //获取首页列表
-        requestMain();
+        setDefaultFragment();
     }
 
-    private void requestMain() {
-        RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(10, 1), true, new ICallBack<List<GankModel>>() {
-
-            @Override
-            public void onSuccess(List<GankModel> result) {
-                setDefaultFragment(result);
-            }
-
-            @Override
-            public void onFailure(String message) {
-                Logger.i("onFailure :" + message);
-                ToastUtils.toastS(mContext, message);
-            }
-        });
-    }
-
-
-    private void setDefaultFragment(List<GankModel> result) {
+    private void setDefaultFragment() {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        MainFragment mainFragment = new MainFragment(mContext, result);
+        MainFragment mainFragment = new MainFragment();
         transaction.replace(R.id.fl_main_layout, mainFragment);
         transaction.commit();
     }
@@ -150,11 +128,9 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-
             return true;
         }
         if (id == R.id.action_theme) {
-
             return true;
         }
         if (id == R.id.action_about_app) {

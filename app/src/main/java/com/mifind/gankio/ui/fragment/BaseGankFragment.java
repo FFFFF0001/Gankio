@@ -3,12 +3,14 @@ package com.mifind.gankio.ui.fragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.mifind.gankio.R;
 import com.mifind.gankio.model.GankModel;
@@ -29,6 +31,10 @@ public abstract class BaseGankFragment extends Fragment implements SwipeRefreshL
     SwipeRefreshLayout mswipeRefreshLayout;
     @Bind(R.id.recycler_view)
     RecyclerView mrecyclerView;
+    @Bind(R.id.fab_search)
+    FloatingActionButton floatingActionButton;
+    @Bind(R.id.progressBar)
+    ProgressBar progressBar;
 
     protected List<GankModel> mdatalist = new ArrayList<>();
     protected BaseRecycleAdapter baseGankAdapter;

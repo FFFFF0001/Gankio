@@ -93,7 +93,6 @@ public class BaseRecycleAdapter extends RecyclerView.Adapter {
         }
     }
 
-
     class FuliItemHolder extends RecyclerView.ViewHolder {
         private ImageView iIvFuli;
 
@@ -121,7 +120,12 @@ public class BaseRecycleAdapter extends RecyclerView.Adapter {
     }
 
     public void updateData(List<GankModel> list) {
-        mDataList = list;
+        mDataList.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    public void clearItems (){
+        mDataList.clear();
         notifyDataSetChanged();
     }
 }
