@@ -23,9 +23,9 @@ Gankio 干货
 ![image](https://github.com/MIFind/Gankio/blob/master/Image/yuedu.jpg)
 ![image](https://github.com/MIFind/Gankio/blob/master/Image/gengxin.jpg)
 
-开发者微信：mystylexuan 、 Lee66666666666，有bug和更好的提议可以和我们联系。<br />
+###开发者微信：mystylexuan 、 Lee66666666666，有bug和更好的提议可以和我们联系。<br />
 ![image](https://github.com/MIFind/Gankio/blob/master/Image/mywx.jpg)
-![image](https://github.com/MIFind/Gankio/blob/master/Image/hgwx.jpg)
+![image](https://github.com/MIFind/Gankio/blob/master/Image/lhwx.jpg)
 -------------------------
 基于干货集中营接口的客户端，仅供日常学习与新功能练习，功能不定期上新。<br />
 ##[点击这里你可以链接到干货集中营获取接口](http://gank.io)<br />
