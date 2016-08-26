@@ -26,6 +26,10 @@ public class Conf {
 
     //    每日数据： http://gank.io/api/day/年/月/日
     //    例：•http://gank.io/api/day/2015/08/06
+    
+     public static String QueryGank(String query,int num, int index) {
+        return "http://gank.io/api/search/query/"+query+"/category/all/count/"+num+"/page/"+index;
+    }
 
     public static String RequestAll(int num, int index) {
         return "http://gank.io/api/data/all/" + num + "/" + index;
