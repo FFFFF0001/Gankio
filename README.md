@@ -27,7 +27,6 @@ Gankio 干货
 ![image](https://github.com/MIFind/Gankio/blob/master/Image/mywx.jpg)
 ![image](https://github.com/MIFind/Gankio/blob/master/Image/lhwx.jpg)
 -------------------------
-基于干货集中营接口的客户端，仅供日常学习与新功能练习，功能不定期上新。<br />
 ##[点击这里你可以链接到干货集中营获取接口](http://gank.io)<br />
 ##[干货github地址](https://github.com/MIFind/Gankio)<br />
 ##[项目测试包日常更新地址](http://fir.im/7qjd)<br />
