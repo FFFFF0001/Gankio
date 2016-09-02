@@ -3,7 +3,6 @@ package com.mifind.gankio.ui.fragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bilibili.magicasakura.widgets.TintProgressBar;
+import com.github.clans.fab.FloatingActionButton;
 import com.mifind.gankio.R;
 import com.mifind.gankio.model.GankModel;
 import com.mifind.gankio.ui.view.recycleview.BaseRecycleAdapter;

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.mifind.gankio.conf.ColorList;
 import com.mifind.gankio.conf.Conf;
 import com.mifind.gankio.event.SkinChangeEvent;
 import com.mifind.gankio.http.ICallBack;
@@ -130,7 +131,7 @@ public class MainFragment extends BaseGankFragment {
     @Subscribe
     public void onEventMainThread(SkinChangeEvent event) {
         int currentTheme = event.getCurrentTheme();
-
+        floatingActionButton.setColorNormal(ColorList.getColor(currentTheme));
     }
 
     @Override

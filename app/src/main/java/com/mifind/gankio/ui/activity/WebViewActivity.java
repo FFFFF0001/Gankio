@@ -3,12 +3,12 @@ package com.mifind.gankio.ui.activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -27,6 +27,7 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionButton;
 import com.mifind.gankio.R;
 import com.mifind.gankio.event.SkinChangeEvent;
 import com.mifind.gankio.model.GankModel;
@@ -356,6 +357,7 @@ public class WebViewActivity extends BaseActivity {
         String msg = "onEventMainThread收到了消息：" + event.getCurrentTheme();
         Logger.i(msg);
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+        mFloatingActionButton.setColorNormal(Color.BLACK);
     }
 
 
