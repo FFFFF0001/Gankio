@@ -1,6 +1,5 @@
 package com.mifind.gankio.ui.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -8,12 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.mifind.gankio.R;
 import com.mifind.gankio.conf.Conf;
+import com.mifind.gankio.event.SkinChangeEvent;
 import com.mifind.gankio.http.ICallBack;
 import com.mifind.gankio.http.RequestManager;
 import com.mifind.gankio.model.GankModel;
 import com.orhanobut.logger.Logger;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 
@@ -26,6 +28,7 @@ import me.xiaopan.android.widget.ToastUtils;
  */
 public class MainFragment extends BaseGankFragment {
     public static final String TAG = MainFragment.class.getSimpleName();
+
     public MainFragment() {
     }
 
@@ -36,11 +39,12 @@ public class MainFragment extends BaseGankFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View contentview = CreateView(inflater, container);
+        EventBus.getDefault().register(this);
         setupFAB();
         return contentview;
     }
 
-    private void setupFAB(){
+    private void setupFAB() {
         floatingActionButton.setVisibility(View.VISIBLE);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +63,7 @@ public class MainFragment extends BaseGankFragment {
             }
         });
     }
+
     @Override
     protected void RequestData() {
         RequestManager.getInstance().debug("request").get("all", Conf.RequestAll(pageSize, page), true, new ICallBack<List<GankModel>>() {
@@ -85,7 +90,7 @@ public class MainFragment extends BaseGankFragment {
         });
     }
 
-    private void QueryGank(String query){
+    private void QueryGank(String query) {
         progressBar.setVisibility(View.VISIBLE);
         baseGankAdapter.clearItems();
         RequestManager.getInstance().debug("request").get("all", Conf.QueryGank(query, 10, page), true, new ICallBack<List<GankModel>>() {
@@ -93,9 +98,9 @@ public class MainFragment extends BaseGankFragment {
             @Override
             public void onSuccess(List<GankModel> result) {
                 progressBar.setVisibility(View.GONE);
-                if (result == null){
+                if (result == null) {
                     ToastUtils.toastS(mContext, "这里没有你要找的干货哟~下拉刷新回");
-                }else {
+                } else {
                     baseGankAdapter.updateData(result);
                 }
             }
@@ -120,5 +125,17 @@ public class MainFragment extends BaseGankFragment {
         page = 1;
         mdatalist.clear();
         RequestData();
+    }
+
+    @Subscribe
+    public void onEventMainThread(SkinChangeEvent event) {
+        int currentTheme = event.getCurrentTheme();
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

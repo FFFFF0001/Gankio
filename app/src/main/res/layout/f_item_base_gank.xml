@@ -1,47 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
+    android:id="@+id/cardview_base_gank"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardview_base_gank"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
     android:clickable="true"
-    app:contentPadding="3dp"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardCornerRadius="4dp"
     app:cardElevation="2dp"
     app:cardPreventCornerOverlap="true"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    app:contentPadding="3dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dp">
-       <TextView
-           android:id="@+id/tv_gank_title"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:textColor="@color/black"
-           android:textSize="14sp"/>
-        <TextView
+
+        <com.bilibili.magicasakura.widgets.TintTextView
+            android:id="@+id/tv_gank_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/padding_half"
+            android:textColor="@color/selector_text"
+            android:textSize="14sp"/>
+
+        <com.bilibili.magicasakura.widgets.TintTextView
             android:id="@+id/tv_gank_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
             android:layout_below="@id/tv_gank_title"
-            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
             android:textSize="10sp"
+            android:drawablePadding="@dimen/padding_half"
+            android:textColor="@color/selector_text"
             />
-        <TextView
+
+        <com.bilibili.magicasakura.widgets.TintTextView
             android:id="@+id/tv_gank_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_gank_title"
-            android:layout_toRightOf="@id/tv_gank_date"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="3dp"
-            android:textColor="@color/black"
+            android:layout_toRightOf="@id/tv_gank_date"
+            android:drawablePadding="@dimen/padding_half"
+            android:textColor="@color/selector_text"
             android:textSize="10sp"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

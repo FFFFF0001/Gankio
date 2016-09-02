@@ -75,7 +75,7 @@ public class BaseRecycleAdapter extends RecyclerView.Adapter {
     }
 
     private void bindFuliItem(GankModel gankModel, FuliItemHolder holder) {
-        GlideUtils.getInstance().LoadFragmentImage(mFragment, gankModel.getUrl(), holder.iIvFuli, 0, 0);
+        GlideUtils.getInstance().LoadFragmentBitmap(mFragment, gankModel.getUrl(), holder.iIvFuli, 0, 0, GlideUtils.LOAD_BITMAP);
     }
 
     @Override
@@ -124,7 +124,7 @@ public class BaseRecycleAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
-    public void clearItems (){
+    public void clearItems() {
         mDataList.clear();
         notifyDataSetChanged();
     }

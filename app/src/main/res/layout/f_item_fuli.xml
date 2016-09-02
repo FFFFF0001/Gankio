@@ -14,7 +14,7 @@
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true">
 
-    <ImageView
+    <com.bilibili.magicasakura.widgets.TintImageView
         android:id="@+id/iv_item_fuli"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -13,6 +13,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
+import com.mifind.gankio.R;
 import com.mifind.gankio.http.RequestManager;
 import com.orhanobut.logger.Logger;
 import com.umeng.message.PushAgent;
@@ -69,8 +71,19 @@ public abstract class BaseActivity extends AppCompatActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
         initView(mContextView);
+        setStatusBar();
         setListener();
         doBusiness(this);
+    }
+
+    private void setStatusBar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(ThemeUtils.getColorById(mContext, R.color.theme_color_primary_dark));
+        }
     }
 
     /**

@@ -1,24 +1,27 @@
 package com.mifind.gankio.ui.activity;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
+import com.bilibili.magicasakura.widgets.TintToolbar;
 import com.mifind.gankio.R;
 import com.mifind.gankio.conf.Conf;
+import com.mifind.gankio.event.SkinChangeEvent;
 import com.mifind.gankio.ui.fragment.AndriodFragment;
 import com.mifind.gankio.ui.fragment.AppFragment;
 import com.mifind.gankio.ui.fragment.ExpandFragment;
@@ -28,10 +31,13 @@ import com.mifind.gankio.ui.fragment.MainFragment;
 import com.mifind.gankio.ui.fragment.RecommodFragment;
 import com.mifind.gankio.ui.fragment.RestFragment;
 import com.mifind.gankio.ui.fragment.WebFragment;
+import com.mifind.gankio.ui.view.CardPickerDialog;
+import com.mifind.gankio.utils.ThemeHelper;
 import com.orhanobut.logger.Logger;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UmengRegistrar;
 
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -41,12 +47,12 @@ import butterknife.ButterKnife;
  * Created by JW.Xuan on 2016/8/24 16:17.
  * 邮箱：mifind@sina.com
  */
-public class MainActivity extends BaseActivity implements OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity implements OnNavigationItemSelectedListener, CardPickerDialog.ClickListener {
     /**
      * APP主页  侧滑抽屉可切换fragment
      */
     @Bind(R.id.toolbar)
-    Toolbar mToolbar;
+    TintToolbar mToolbar;
     @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
     @Bind(R.id.nav_view)
@@ -55,7 +61,8 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     private PushAgent mPushAgent;
 
     @Override
-    public void initParms(Bundle parms) {}
+    public void initParms(Bundle parms) {
+    }
 
     @Override
     protected void onResume() {
@@ -73,10 +80,6 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
 
     @Override
     public int bindLayout() {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //去掉Activity上面的状态栏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         return R.layout.activity_main;
     }
 
@@ -131,6 +134,9 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
             return true;
         }
         if (id == R.id.action_theme) {
+            CardPickerDialog dialog = new CardPickerDialog();
+            dialog.setClickListener(this);
+            dialog.show(getSupportFragmentManager(), CardPickerDialog.TAG);
             return true;
         }
         if (id == R.id.action_about_app) {
@@ -207,5 +213,30 @@ public class MainActivity extends BaseActivity implements OnNavigationItemSelect
     protected void onDestroy() {
         super.onDestroy();
         mPushAgent.disable();
+    }
+
+    @Override
+    public void onConfirm(final int currentTheme) {
+        EventBus.getDefault().post(new SkinChangeEvent(currentTheme));
+        if (ThemeHelper.getTheme(MainActivity.this) != currentTheme) {
+            ThemeHelper.setTheme(MainActivity.this, currentTheme);
+            ThemeUtils.refreshUI(MainActivity.this, new ThemeUtils.ExtraRefreshable() {
+                        @Override
+                        public void refreshGlobal(Activity activity) {
+                            if (Build.VERSION.SDK_INT >= 21) {
+                                final MainActivity context = MainActivity.this;
+                                ActivityManager.TaskDescription taskDescription = new ActivityManager.TaskDescription(null, null, ThemeUtils.getThemeAttrColor(context, android.R.attr.colorPrimary));
+                                setTaskDescription(taskDescription);
+                                getWindow().setStatusBarColor(ThemeUtils.getColorById(context, R.color.theme_color_primary_dark));
+                            }
+                        }
+
+                        @Override
+                        public void refreshSpecificView(View view) {
+
+                        }
+                    }
+            );
+        }
     }
 }

@@ -11,13 +11,16 @@
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-
-        <android.support.v7.widget.Toolbar
+        <com.bilibili.magicasakura.widgets.TintToolbar
             android:id="@+id/toolbar"
+            style="@style/Widget.App.Toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            android:layout_height="wrap_content"
+            android:background="@color/theme_color_primary"
+            android:fitsSystemWindows="true"
+            app:elevation="4dp">
 
+        </com.bilibili.magicasakura.widgets.TintToolbar>
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main"/>

@@ -12,14 +12,13 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
+        <com.bilibili.magicasakura.widgets.TintToolbar
             android:id="@+id/mToolbar"
+            style="@style/Widget.App.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:background="@color/theme_color_primary"
+            app:elevation="4dp">
 
             <TextView
                 android:id="@+id/toolbar_title"
@@ -32,7 +31,8 @@
                 android:scrollHorizontally="true"
                 android:singleLine="true"
                 android:textSize="@dimen/abc_text_size_title_material_toolbar"/>
-        </android.support.v7.widget.Toolbar>
+        </com.bilibili.magicasakura.widgets.TintToolbar>
+
 
     </android.support.design.widget.AppBarLayout>
 
@@ -52,7 +52,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/ic_remmend"/>
+            android:src="@drawable/ic_remmend"
+            app:backgroundTint="@color/colorAccent"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/web_fab"
@@ -60,6 +63,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/web_fab_shoucang"
             android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/ic_gift"/>
+            android:src="@drawable/ic_gift"
+            app:backgroundTint="@color/colorAccent"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"/>
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

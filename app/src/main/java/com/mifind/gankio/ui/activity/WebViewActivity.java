@@ -12,11 +12,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.webkit.JsResult;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -25,12 +25,18 @@ import android.webkit.WebSettings.RenderPriority;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mifind.gankio.R;
+import com.mifind.gankio.event.SkinChangeEvent;
 import com.mifind.gankio.model.GankModel;
 import com.mifind.gankio.utils.ShareUtils;
 import com.orhanobut.logger.Logger;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
+import java.io.File;
 import java.lang.ref.WeakReference;
 
 import butterknife.Bind;
@@ -44,6 +50,7 @@ import me.xiaopan.android.widget.ToastUtils;
 public class WebViewActivity extends BaseActivity {
     private final static int FINISH_ACTIVITY = 0;
     private final static int REQUEST_UPLOAD_FILE_CODE = 2;
+    private static final String APP_CACAHE_DIRNAME = "/webcache";
     private ValueCallback<Uri> mUploadFile;
     private final String TAG = this.getClass().getSimpleName();
     private Handler handler = new MyHandler(this);
@@ -79,16 +86,13 @@ public class WebViewActivity extends BaseActivity {
 
     @Override
     public int bindLayout() {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //去掉Activity上面的状态栏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         return R.layout.activity_webview;
     }
 
     @Override
     public void initView(View view) {
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -100,10 +104,10 @@ public class WebViewActivity extends BaseActivity {
             public void onClick(View view) {
                 if (mGankModel != null) {
                     ShareUtils.showShare(mGankModel.getUrl(), mGankModel.getDesc());
-                }else {
-                    if(url.startsWith("https")){
+                } else {
+                    if (url.startsWith("https")) {
                         ShareUtils.showShare(url, "Android开发记录博客。");
-                    }else{
+                    } else {
                         ShareUtils.showShare(url, "干货，一个即将变的牛逼的软件。");
                     }
                 }
@@ -129,8 +133,9 @@ public class WebViewActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        mWebView.destroy();
         super.onDestroy();
+        mWebView.destroy();
+        EventBus.getDefault().unregister(this);//反注册EventBus
     }
 
     private void configWebview() {
@@ -148,6 +153,10 @@ public class WebViewActivity extends BaseActivity {
         // settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK); //关闭webview中缓存
         settings.setCacheMode(WebSettings.LOAD_DEFAULT); //设置 缓存模式
         settings.setDomStorageEnabled(true);// 开启 DOM storage API 功能
+        settings.setDatabaseEnabled(true);   //开启 database storage API 功能
+        String cacheDirPath = getFilesDir().getAbsolutePath() + APP_CACAHE_DIRNAME;
+        settings.setDatabasePath(cacheDirPath);
+        settings.setAppCachePath(cacheDirPath);
         settings.setAppCacheMaxSize(8 * 1024 * 1024);
         settings.setRenderPriority(RenderPriority.HIGH);
         settings.setAppCacheEnabled(true);
@@ -341,5 +350,65 @@ public class WebViewActivity extends BaseActivity {
         }
     }
 
+
+    @Subscribe
+    public void onEventMainThread(SkinChangeEvent event) {
+        String msg = "onEventMainThread收到了消息：" + event.getCurrentTheme();
+        Logger.i(msg);
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
+
+
+    /**
+     * 清除WebView缓存
+     */
+    public void clearWebViewCache() {
+
+        //清理Webview缓存数据库
+        try {
+            deleteDatabase("webview.db");
+            deleteDatabase("webviewCache.db");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //WebView 缓存文件
+        File appCacheDir = new File(getFilesDir().getAbsolutePath() + APP_CACAHE_DIRNAME);
+
+        File webviewCacheDir = new File(getCacheDir().getAbsolutePath() + "/webviewCache");
+
+        //删除webview 缓存目录
+        if (webviewCacheDir.exists()) {
+            deleteFile(webviewCacheDir);
+        }
+        //删除webview 缓存 缓存目录
+        if (appCacheDir.exists()) {
+            deleteFile(appCacheDir);
+        }
+    }
+
+    /**
+     * 递归删除 文件/文件夹
+     *
+     * @param file
+     */
+    public void deleteFile(File file) {
+
+        Log.i(TAG, "delete file path=" + file.getAbsolutePath());
+
+        if (file.exists()) {
+            if (file.isFile()) {
+                file.delete();
+            } else if (file.isDirectory()) {
+                File files[] = file.listFiles();
+                for (int i = 0; i < files.length; i++) {
+                    deleteFile(files[i]);
+                }
+            }
+            file.delete();
+        } else {
+            Log.e(TAG, "delete file no exists " + file.getAbsolutePath());
+        }
+    }
 
 }

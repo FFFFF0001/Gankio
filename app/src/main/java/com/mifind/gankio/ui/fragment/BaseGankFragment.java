@@ -10,8 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
+import com.bilibili.magicasakura.widgets.TintProgressBar;
 import com.mifind.gankio.R;
 import com.mifind.gankio.model.GankModel;
 import com.mifind.gankio.ui.view.recycleview.BaseRecycleAdapter;
@@ -34,7 +34,7 @@ public abstract class BaseGankFragment extends Fragment implements SwipeRefreshL
     @Bind(R.id.fab_search)
     FloatingActionButton floatingActionButton;
     @Bind(R.id.progressBar)
-    ProgressBar progressBar;
+    TintProgressBar progressBar;
 
     protected List<GankModel> mdatalist = new ArrayList<>();
     protected BaseRecycleAdapter baseGankAdapter;
