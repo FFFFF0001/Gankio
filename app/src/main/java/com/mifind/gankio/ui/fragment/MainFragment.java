@@ -7,12 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.mifind.gankio.conf.ColorList;
 import com.mifind.gankio.conf.Conf;
 import com.mifind.gankio.event.SkinChangeEvent;
 import com.mifind.gankio.http.ICallBack;
 import com.mifind.gankio.http.RequestManager;
 import com.mifind.gankio.model.GankModel;
+import com.mifind.gankio.utils.ColorUtils;
 import com.orhanobut.logger.Logger;
 
 import org.greenrobot.eventbus.EventBus;
@@ -40,6 +40,7 @@ public class MainFragment extends BaseGankFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View contentview = CreateView(inflater, container);
+        ColorUtils.fabInitColor(floatingActionButton);
         EventBus.getDefault().register(this);
         setupFAB();
         return contentview;
@@ -130,8 +131,7 @@ public class MainFragment extends BaseGankFragment {
 
     @Subscribe
     public void onEventMainThread(SkinChangeEvent event) {
-        int currentTheme = event.getCurrentTheme();
-        floatingActionButton.setColorNormal(ColorList.getColor(currentTheme));
+        ColorUtils.fabUpdateColor(floatingActionButton,event.getCurrentTheme());
     }
 
     @Override

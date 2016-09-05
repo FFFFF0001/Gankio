@@ -3,7 +3,6 @@ package com.mifind.gankio.ui.activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,17 +24,14 @@ import android.webkit.WebSettings.RenderPriority;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.mifind.gankio.R;
-import com.mifind.gankio.event.SkinChangeEvent;
 import com.mifind.gankio.model.GankModel;
+import com.mifind.gankio.utils.ColorUtils;
 import com.mifind.gankio.utils.ShareUtils;
 import com.orhanobut.logger.Logger;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -64,7 +60,11 @@ public class WebViewActivity extends BaseActivity {
     @Bind(R.id.toolbar_title)
     TextView mToolbarTitle;
     @Bind(R.id.web_fab)
-    FloatingActionButton mFloatingActionButton;
+    FloatingActionButton mFabShare;
+    @Bind(R.id.web_fab_shoucang)
+    FloatingActionButton mFabShoucang;
+    @Bind(R.id.web_fab_menu)
+    FloatingActionMenu mFabMenu;
 
     @Override
     public void initParms(Bundle parms) {
@@ -93,14 +93,16 @@ public class WebViewActivity extends BaseActivity {
     @Override
     public void initView(View view) {
         ButterKnife.bind(this);
-        EventBus.getDefault().register(this);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ColorUtils.fabMenuInitColor(mFabMenu);
+        ColorUtils.fabInitColor(mFabShare);
+        ColorUtils.fabInitColor(mFabShoucang);
     }
 
     @Override
     public void setListener() {
-        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+        mFabShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mGankModel != null) {
@@ -136,7 +138,6 @@ public class WebViewActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         mWebView.destroy();
-        EventBus.getDefault().unregister(this);//反注册EventBus
     }
 
     private void configWebview() {
@@ -349,15 +350,6 @@ public class WebViewActivity extends BaseActivity {
             }
             super.handleMessage(msg);
         }
-    }
-
-
-    @Subscribe
-    public void onEventMainThread(SkinChangeEvent event) {
-        String msg = "onEventMainThread收到了消息：" + event.getCurrentTheme();
-        Logger.i(msg);
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-        mFloatingActionButton.setColorNormal(Color.BLACK);
     }
 
 
