@@ -15,6 +15,7 @@ import com.mifind.gankio.R;
 import com.mifind.gankio.model.GankModel;
 import com.mifind.gankio.ui.activity.WebViewActivity;
 import com.mifind.gankio.utils.GlideUtils;
+import com.mifind.gankio.utils.ImageLoader;
 
 import java.util.List;
 
@@ -75,7 +76,8 @@ public class BaseRecycleAdapter extends RecyclerView.Adapter {
     }
 
     private void bindFuliItem(GankModel gankModel, FuliItemHolder holder) {
-        GlideUtils.getInstance().LoadFragmentBitmap(mFragment, gankModel.getUrl(), holder.iIvFuli, 0, 0, GlideUtils.LOAD_BITMAP);
+//        GlideUtils.getInstance().LoadFragmentBitmap(mFragment, gankModel.getUrl(), holder.iIvFuli, 0, 0, GlideUtils.LOAD_BITMAP);
+        ImageLoader.getInstance().bindBitmap(gankModel.getUrl(),holder.iIvFuli);
     }
 
     @Override
